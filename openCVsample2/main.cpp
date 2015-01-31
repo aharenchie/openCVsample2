@@ -31,7 +31,7 @@ main (int argc, char **argv)
     // (3)apply an adaptive threshold to a grayscale image
     Mat adaptive_img;
     adaptiveThreshold(gray_img, adaptive_img, 255, ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 8);
-    /*
+    
     //(4)show source and destination images
  
     namedWindow("Trunc", CV_WINDOW_AUTOSIZE);
@@ -56,11 +56,11 @@ main (int argc, char **argv)
     }
 
     //輪郭検出
-     cvFindContours (&test, storage, &contours, sizeof (CvContour), CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
+     cvFindContours (&test, storage, &contours, sizeof (CvContour), CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
     // (3)輪郭の描画
     cvDrawContours (dst_img[0], contours, CV_RGB (255, 0, 0), CV_RGB (0, 255, 0), levels - 1, 2, CV_AA, cvPoint (0, 0));
     cvDrawContours (dst_img[1], contours, CV_RGB (255, 0, 0), CV_RGB (0, 255, 0), levels, 2, CV_AA, cvPoint (0, 0));
-    cvDrawContours (dst_img[2], contours, CV_RGB (255, 0, 0), CV_RGB (0, 255, 0), levels + 1, 2, CV_AA, cvPoint (0, 0));
+    cvDrawContours (dst_img[2], contours, CV_RGB (0, 0, 0), CV_RGB (0, 255, 0), levels + 1, 2, CV_AA, cvPoint (0, 0));
     
     // (4)画像の表示
     cvNamedWindow ("Level:-1", CV_WINDOW_AUTOSIZE);
@@ -75,7 +75,7 @@ main (int argc, char **argv)
     cvDestroyWindow ("Level:0");
     cvDestroyWindow ("Level:1");
     
-    */
+    /*
     int i;
     CvSeq *lines = 0;
     CvMemStorage *storage;
@@ -99,5 +99,6 @@ main (int argc, char **argv)
     imshow("Trunc", src_img);
     
     waitKey(0);
+     */
     
     return 0;}
